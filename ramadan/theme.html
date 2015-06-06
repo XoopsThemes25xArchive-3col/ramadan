@@ -1,0 +1,181 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<{$xoops_langcode}>" lang="<{$xoops_langcode}>">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=<{$xoops_charset}>" />
+<meta http-equiv="expires" content="0" />
+<meta http-equiv="content-language" content="<{$xoops_langcode}>" />
+<meta name="resource-type" content="document" />
+<meta name="robots" content="<{$xoops_meta_robots}>" />
+<meta name="keywords" content="<{$xoops_pagetitle}>,<{$xoops_meta_keywords}>" />
+<meta name="description" content="<{$xoops_pagetitle}>,<{$xoops_meta_description}>" />
+<meta name="rating" content="<{$xoops_meta_rating}>" />
+<meta name="author" content="<{$xoops_meta_author}>" />
+<meta name="copyright" content="<{$xoops_meta_copyright}>" />
+<meta name="generator" content="XOOPS" />
+<meta name="revisit-after" content="1 days" />
+<title><{$xoops_sitename}> - <{$xoops_pagetitle}></title>
+<link href="<{$xoops_url}>/favicon.ico" rel="SHORTCUT ICON" />
+<link rel="stylesheet" type="text/css" media="screen" href="<{$xoops_url}>/xoops.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="<{$xoops_themecss}>" />
+<!-- RMV: added module header -->
+<{$xoops_module_header}>
+<script type="text/javascript">
+<!--
+<{$xoops_js}>
+//-->
+</script>
+
+</head>
+<body>
+<!-- START HEADER-->
+<table class="header2" border="0" cellspacing="0" cellpadding="0" align="center">
+  <tr>
+    <td width="259" class="logo3">&nbsp;</td>
+    <td width="100%" class="logo2">&nbsp;</td>
+    <td width="259" class="logo1">&nbsp;</td>
+  </tr>
+  <tr>
+    <td colspan="3" class="menu">
+    <table dir="rtl" width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <!-- Start of New User Bar -->
+        <{if !$xoops_isuser}>
+        <td width="0" height="0" class="menu_tabs_login"><form style="margin: 3px;" action="<{$xoops_url}>/user.php" method="post">
+    <a href="<{$xoops_url}>/user.php#lost"><img border="0" src="<{$xoops_imageurl}>images/user_login.gif" align="middle" alt="‰”Ì  ﬂ·„… «·„—Ê— ø"></img></a>
+    <input type="text" name="uname" value="≈”„ﬂ √Ê »—Ìœﬂ" size="11" onmouseover="this.focus();" onfocus="if(this.value == '≈”„ﬂ √Ê »—Ìœﬂ') this.value = '';"></input>
+    <input  name="pass" type="password" value="password" size="10" onmouseover="this.focus();" onfocus="if(this.value == 'password') this.value = '';"></input>
+    <input type="checkbox" name="rememberme" value="On"/>  –ﬂ—‰Ì 
+    <input type="hidden" name="op" value="login"/><input type="submit" value="œŒÊ·"/>
+    <a href="<{$xoops_url}>/register.php">„‘ —ﬂ ÃœÌœ ø</a>
+    </form>
+    </td>
+        <{/if}>
+        <{if $xoops_isuser}>
+        <td class="menu_tabs"><a href="<{$xoops_url}>/user.php">»Ì«‰«  ≈‘ —«ﬂﬂ</a></td>
+        <td width="4" class="menu_sep">&nbsp;</td>
+        <td class="menu_tabs"><a href="<{$xoops_url}>/edituser.php"> Õ—Ì— ≈‘ —«ﬂﬂ</a></td>
+        <td width="4" class="menu_sep">&nbsp;</td>
+        <td class="menu_tabs"><a href="<{$xoops_url}>/notifications.php">«· »·Ì€« </a></td>
+        <td width="4" class="menu_sep">&nbsp;</td>
+        <td class="menu_tabs"><{if $xoops_isuser}>
+          <{php}>
+GLOBAL $xoopsUser;
+$pm_handler =& xoops_gethandler('privmessage');
+$uid = $xoopsUser->getVar('uid');
+$criteria = new CriteriaCompo(new Criteria('read_msg', 0));
+$criteria->add(new Criteria('to_userid', $uid));
+$msgcount = $pm_handler->getCount($criteria);
+$GLOBALS['xoopsTpl']->assign('msgcount', $msgcount);
+<{/php}>
+          <{/if}>
+          <{if $msgcount > 0}>
+          <a class="highlight" href="<{$xoops_url}>/viewpmsg.php">«·Ê«—œ (<span style="color:#ff0000; font-weight: bold;"><{$msgcount}></span>)</a>
+          <{else}>
+          <a href="<{$xoops_url}>/viewpmsg.php">«·Ê«—œ</a>
+          <{/if}></td>
+        <td width="4" class="menu_sep">&nbsp;</td>
+        <td class="menu_tabs"><a href="<{$xoops_url}>/user.php?op=logout">Œ—ÊÃ</a></td>
+        <td width="4" class="menu_sep">&nbsp;</td>
+        <td class="menu_tabs"><{if $xoops_isadmin}>
+          <a href="<{$xoops_url}>/admin.php">«·≈œ«—…</a>
+        <td width="4" class="menu_sep">&nbsp;</td>
+        <{/if}>
+      </td>
+      
+      <{else}>
+      <{/if}>
+      <!-- End of New User Bar -->
+      <td width="0" height="0" class="search" align="left"><form style="margin: 4px;" action="<{$xoops_url}>/search.php" method="get">
+            <input type="text" name="query" size="14" />
+            <input type="hidden" name="action" value="results" />
+      <input name="submit" type="submit" value="»ÕÀ" /> <a href="<{$xoops_url}>/search.php"> »ÕÀ „ ﬁœ„</a></form></td></tr> 
+    </table>
+    </td>
+  </tr>
+</table>
+<table id="Main" border="0" cellspacing="0" cellpadding="0" align="center">
+  <tr>
+    <{if $xoops_showlblock == 1}>
+    <td width="170" id="leftcolumn"><!-- Start left blocks loop -->
+        <{foreach item=block from=$xoops_lblocks}>
+          <{include file="$xoops_theme/theme_blockleft.html"}>
+        <{/foreach}>
+        <!-- End left blocks loop -->
+    </td>
+    <{/if}>
+    <td colspan="3" id="centercolumn"><!-- Display center blocks if any -->
+      <{if $xoops_showcblock == 1}>
+      <table cellspacing="0" class="centercol">
+        <tr>
+          <td id="centerCcolumn" colspan="2"><!-- Start center-center blocks loop -->
+            <{foreach item=block from=$xoops_ccblocks}>
+            <{include file="$xoops_theme/theme_blockcenter_c.html"}>
+            <{/foreach}>
+            <!-- End center-center blocks loop -->
+          </td>
+        </tr>
+        <tr>
+          <td id="centerLcolumn"><!-- Start center-left blocks loop -->
+<{foreach item=block from=$xoops_clblocks}> <{include file="$xoops_theme/theme_blockcenter_l.html"}> <{/foreach}>
+        <!-- End center-left blocks loop -->
+          </td>
+          <td id="centerRcolumn" style="border-right: 1px solid #c6c6c6;"><!-- Start center-right blocks loop -->
+<{foreach item=block from=$xoops_crblocks}> <{include file="$xoops_theme/theme_blockcenter_r.html"}> <{/foreach}>
+        <!-- End center-right blocks loop -->
+          </td>
+        </tr>
+      </table>
+      <{/if}>
+      <!-- End display center blocks -->
+      <div class="content">
+        <{$xoops_contents}>
+      </div>
+      <{if $xoBlocks.page_bottomleft or $xoBlocks.page_bottomright or $xoBlocks.page_bottomcenter}>
+      <table cellspacing="0" class="centercolb">
+        <{if $xoBlocks.page_bottomcenter}>
+        <tr>
+          <td id="bottomCcolumn" colspan="2"><{foreach from=$xoBlocks.page_bottomcenter item=block}>
+            <{include file="$xoops_theme/theme_blockcenter_c.html"}>
+            <{/foreach}>
+          </td>
+        </tr>
+        <{/if}>
+        <{if $xoBlocks.page_bottomleft or $xoBlocks.page_bottomright}>
+        <tr>
+          <td id="bottomLcolumn"><{foreach from=$xoBlocks.page_bottomleft item=block}>
+            <{include file="$xoops_theme/theme_blockcenter_l.html"}>
+            <{/foreach}>
+          </td>
+          <td id="bottomRcolumn" style="border-right: 1px solid #c6c6c6;"><{foreach from=$xoBlocks.page_bottomright item=block}>
+            <{include file="$xoops_theme/theme_blockcenter_r.html"}>
+            <{/foreach}>
+          </td>
+        </tr>
+        <{/if}>
+      </table>
+      <{/if}>
+    </td>
+     <{if $xoops_showrblock == 1}>
+    <td width="170" id="rightcolumn"><!-- Start right blocks loop -->
+        <{foreach item=block from=$xoops_rblocks}>
+          <{include file="$xoops_theme/theme_blockright.html"}>
+        <{/foreach}>
+        <!-- End right blocks loop -->
+    </td>
+    <{/if}>
+  </tr>
+ </table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" align="center">
+ <tr>
+    <td colspan="5"><table class="footerbg" width="100%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr>
+          <td class="footerL">&nbsp;</td>
+          <td class="footer"><br />
+            <{$xoops_footer}></td>
+          <td class="footerR">&nbsp;</td>
+        </tr>
+      </table></td>
+  </tr>
+</table>
+</body>
+</html>
